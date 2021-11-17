@@ -1,13 +1,13 @@
 export getchar, set_homedir, get_homedir
 
-charset = 'a':'z'
+const charset = 'a':'z'
 
 getchar(idx) = charset[idx]
 
-homedir = "wrong"
+const homedir = ["wrong"]
 
 function set_homedir(path)
-    global homedir = path
+    global homedir[1] = path
 end
-get_homedir() = homedir
+get_homedir() = homedir[1]
 

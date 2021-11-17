@@ -22,12 +22,12 @@ using Test
 
     # The next two tests should pass even at the outset
     @test get_homedir() == "wrong"
-    set_homedir(ENV["HOME"])
-    @test get_homedir() == ENV["HOME"]
+    set_homedir(ENV["USER"])
+    @test get_homedir() == ENV["USER"]
     # This one will fail. But you can't make the value constant and still update it.
     # Find a way to fix it! Hint: `?Ref` or use an array (Refs are like single-element arrays)
     # Explanation: the *container* is constant, but the *contents* can be modified.
     # (Think of the container like a box, which is distinct from the things inside it.)
     # If the container type specifies the type of the contents, Julia's type-inference will be happy.
-    @test @inferred(get_homedir()) == ENV["HOME"]
+    @test @inferred(get_homedir()) == ENV["USER"]
 end

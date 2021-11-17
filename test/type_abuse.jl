@@ -17,7 +17,7 @@ using Test
     btyped = @benchmark(calculate_typed($numbers, $ops), samples=100, evals=10)
     bbranch = @benchmark(calculate_branch($numbers, $opsstr), samples=100, evals=10)
     println("type_abuse.jl: actual performance ratio: ", minimum(btyped).time / minimum(bbranch).time)
-
+    println("type_abuse.jl: actual performance:\n typed $(minimum(btyped).time) branched $(minimum(bbranch).time)")
     # The other thing about excessive use of the type system is that it can increase compile-time latency,
     # since code has to be compiled for each different type. In some cases, it has been observed that one
     # can go from tens of minutes to a few seconds of compile time:
